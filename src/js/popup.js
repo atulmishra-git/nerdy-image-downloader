@@ -119,9 +119,6 @@ function download(){
 
 download()
 
-chrome.runtime.sendMessage({ action: "POPUP_ACTIVE" }, function(response){
-  console.log(response.message)
-})
 // function detectValidHost() {
 //   var name  = localStorage.getItem('host')
 //   if( name != "pinterest") {

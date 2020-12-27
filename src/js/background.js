@@ -17,9 +17,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     localStorage.removeItem('images')
     localStorage.setItem('images', request.images)
   }
-  if(request.action == 'POPUP_ACTIVE'){
-    sendResponse({message: 'Thanks for activating popup.'})
-  }
   // if(request.action == 'SET_HOST') {
   //     localStorage.setItem('host', request.name)
   //     sendResponse({message: 'Host name set ' + request.name})
