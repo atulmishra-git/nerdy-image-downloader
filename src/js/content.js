@@ -39,7 +39,8 @@ chrome.runtime.sendMessage({ action: "CONTENT_SCRIPT_ACTIVE" }, function(respons
        chrome.runtime.sendMessage({ action: "IMAGE_RECEIVED", images: JSON.stringify(img_all) }, function(response){
          console.log(response)
          window.onscroll = function(){
-           var images = document.querySelectorAll('img')
+           var div = document.querySelectorAll('.vbI.XiG')
+           var images = div[0].querySelectorAll('img')
            var img_all = readImages(images)
            chrome.runtime.sendMessage({ action: "IMAGE_RECEIVED_NEW", images: JSON.stringify(img_all), scroll: true }, function(response){
              console.log(response)
