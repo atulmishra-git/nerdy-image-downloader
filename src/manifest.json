@@ -1,0 +1,56 @@
+{
+  "name": "Nerdy Image Downloader",
+  "description": "Downloads images as zip",
+  "manifest_version": 2,
+  "version": "1.0",
+  "content_security_policy": "script-src https://cdn.jsdelivr.net https://cdnjs.cloudflare.com 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_title": "Nerdy Downloader"
+  },
+  "permissions": [
+    "activeTab",
+    "webRequestBlocking",
+    "unlimitedStorage",
+    "downloads"
+  ],
+  "background": {
+    "scripts": [
+      "./js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+          "*://*.pinterest.com/*",
+          "*://*.pinimg.com/*"
+      ],
+      "js": [
+        "./js/content.js"
+      ],
+      "css": [
+          "./css/fontawesome.min.css",
+          "./css/style.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+          "16": "./img/16x16.png",
+          "48": "./img/48x48.png"
+      }
+  },
+  "icons": {
+      "16": "./img/16x16.png",
+      "48": "./img/48x48.png",
+      "128": "./img/128x128.png"
+  },
+  "web_accessible_resources": [
+    "img/**/*.png",
+    "img/**/*.jpg",
+    "public/*.woff2"
+  ]
+}
